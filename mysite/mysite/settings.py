@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+TEMPLATE_DIRS = (
+    '/Users/Josh P/Workspace/Flite/mysite/templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -36,7 +38,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
+    'Users',
+    'registration',
 )
+
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -47,6 +54,14 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False
+DEFAULT_FROM_EMAIL = 'testing@example.com'
+
 ROOT_URLCONF = 'mysite.urls'
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
@@ -56,12 +71,13 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
+
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db532495075',
-        'USER': 'dbo532495075',
-        'PASSWORD': 'Loser1!',
-        'HOST': 'db532495075.db.1and1.com',
+        'NAME': 'fltsite_db',
+        'USER': 'fltsite_josh',
+        'PASSWORD': 'Leopard1',
+        'HOST': 'ns6184.hostgator.com',
         'PORT': '3306',
     }
 }
@@ -79,8 +95,12 @@ USE_L10N = True
 
 USE_TZ = True
 
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader')
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-
+AUTH_PROFILE_MODULE = 'Users.UserProfile'
 STATIC_URL = '/static/'
