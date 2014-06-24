@@ -1,6 +1,8 @@
+/* Webarch Admin Dashboard 
+/* This JS is only for DEMO Purposes - Extract the code that you need
+-----------------------------------------------------------------*/ 
 $(document).ready(function() {				
 	$(".select2").select2();
-			 
 	//Traditional form validation sample
 	$('#form_traditional_validation').validate({
                 focusInvalid: false, 
@@ -17,6 +19,9 @@ $(document).ready(function() {
                     form1CardNumber: {
                         required: true,
                         creditcard: true
+                    },
+                    cardType:{
+                        required: true
                     }
                 },
 
@@ -48,7 +53,10 @@ $(document).ready(function() {
                 
                 }
             });	
-	
+
+            $('.select2', "#form_traditional_validation").change(function () {
+                $('#form_traditional_validation').validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
+            });
 	//Iconic form validation sample	
 	   $('#form_iconic_validation').validate({
                 errorElement: 'span', 
@@ -67,6 +75,9 @@ $(document).ready(function() {
                     form1Url: {
                         required: true,
                         url: true
+                    },
+                    gendericonic:{
+                        required: true
                     }
                 },
 
@@ -77,7 +88,7 @@ $(document).ready(function() {
                 errorPlacement: function (error, element) { // render error placement for each input type
                     var icon = $(element).parent('.input-with-icon').children('i');
                     var parent = $(element).parent('.input-with-icon');
-                    icon.removeClass('icon-ok').addClass('icon-exclamation');  
+                    icon.removeClass('fa fa-check').addClass('fa fa-exclamation');  
                     parent.removeClass('success-control').addClass('error-control');  
                 },
 
@@ -93,13 +104,17 @@ $(document).ready(function() {
                 success: function (label, element) {
                     var icon = $(element).parent('.input-with-icon').children('i');
 					var parent = $(element).parent('.input-with-icon');
-                    icon.removeClass("icon-exclamation").addClass('icon-ok');
+                    icon.removeClass("fa fa-exclamation").addClass('fa fa-check');
 					parent.removeClass('error-control').addClass('success-control'); 
                 },
 
                 submitHandler: function (form) {
                 
                 }
+           
+            });
+             $('.select2', "#form_iconic_validation").change(function () {
+                $('#form_iconic_validation').validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
             });
 	//Form Condensed Validation
 	$('#form-condensed').validate({
@@ -245,11 +260,10 @@ $(document).ready(function() {
 	  			}
 				else{
 					$('#rootwizard').find('.form-wizard').children('li').eq(index-1).addClass('complete');
-					$('#rootwizard').find('.form-wizard').children('li').eq(index-1).find('.step').html('<i class="icon-ok"></i>');	
+					$('#rootwizard').find('.form-wizard').children('li').eq(index-1).find('.step').html('<i class="fa fa-check"></i>');	
 				}
 	  		}
-	 });	
-	 
+	 });	 
 
 });	
 	 

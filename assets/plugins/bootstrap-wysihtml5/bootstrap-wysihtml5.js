@@ -46,8 +46,8 @@
         "link": function(locale, options) {
             var size = (options && options.size) ? ' btn-'+options.size : '';
             return "<li>" +
-              "<div class='bootstrap-wysihtml5-insert-link-modal modal hide fade'>" +
-                "<div class='modal-header'>" +
+              "<div class='bootstrap-wysihtml5-insert-link-modal modal fade' id='linkmodal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>" +
+                "<div class='modal-dialog'><div class='modal-content'><div class='modal-header'>" +
                   "<a class='close' data-dismiss='modal'></a>" +
                   "<h3>" + locale.link.insert + "</h3>" +
                 "</div>" +
@@ -58,16 +58,16 @@
                   "<a href='#' class='btn' data-dismiss='modal'>" + locale.link.cancel + "</a>" +
                   "<a href='#' class='btn green  btn-primary' data-dismiss='modal'>" + locale.link.insert + "</a>" +
                 "</div>" +
-              "</div>" +
-              "<a class='btn btn-white" + size + "' data-wysihtml5-command='createLink' title='" + locale.link.insert + "'><i class='fa fa-share'></i></a>" +
+              "</div></div></div>" +
+              "<a class='btn btn-white" + size + "' data-wysihtml5-command='createLink' title='" + locale.link.insert + "' data-toggle='modal' data-target='#linkmodal'><i class='fa fa-share'></i></a>" +
             "</li>";
         },
 
         "image": function(locale, options) {
             var size = (options && options.size) ? ' btn-'+options.size : '';
             return "<li>" +
-              "<div class='bootstrap-wysihtml5-insert-image-modal modal hide fade'>" +
-                "<div class='modal-header'>" +
+              "<div class='bootstrap-wysihtml5-insert-image-modal modal fade' id='imgmodal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>" +
+                "<div class='modal-dialog'><div class='modal-content'><div class='modal-header'>" +
                   "<a class='close' data-dismiss='modal'></a>" +
                   "<h3>" + locale.image.insert + "</h3>" +
                 "</div>" +
@@ -78,8 +78,8 @@
                   "<a href='#' class='btn' data-dismiss='modal'>" + locale.image.cancel + "</a>" +
                   "<a href='#' class='btn  green btn-primary' data-dismiss='modal'>" + locale.image.insert + "</a>" +
                 "</div>" +
-              "</div>" +
-              "<a class='btn btn-white" + size + "' data-wysihtml5-command='insertImage' title='" + locale.image.insert + "'><i class='fa fa-picture-o'></i></a>" +
+             "</div></div></div>" +
+              "<a class='btn btn-white" + size + "' data-wysihtml5-command='insertImage' title='" + locale.image.insert + "' data-toggle='modal' data-target='#imgmodal'><i class='fa fa-picture-o'></i></a>" +
             "</li>";
         },
 

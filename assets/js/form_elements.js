@@ -1,3 +1,6 @@
+/* Webarch Admin Dashboard 
+/* This JS is only for DEMO Purposes - Extract the code that you need
+-----------------------------------------------------------------*/	
 //Cool ios7 switch - Beta version
 //Done using pure Javascript
 var Switch = require('ios7-switch')

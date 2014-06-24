@@ -1,3 +1,5 @@
+/* Webarch Admin Dashboard 
+-----------------------------------------------------------------*/	
 $(document).ready(function() {	
 	var conversation = [[1,"sadsadsad"],[1,"asdsad"],[0,"asdsada"]];
 	$('.user-details-wrapper').click(function(){
@@ -26,46 +28,25 @@ $(document).ready(function() {
 		{		
 			send_message($(this).val());
 			$(this).val("");
-			$(this).blur()
+			$(this).focus();
 		}
 	 })
-	$(window).setBreakpoints({
-		distinct: true, 
-		breakpoints: [
-			320,
-			480,
-			768,
-			1024
-		] 
-	});   	
-	var eleHeight =window.screen.height;
-	eleHeight=eleHeight-180;
-	
-	$(window).setBreakpoints({
-		distinct: true, 
-		breakpoints: [
-			320,
-			480,
-			768,
-			1024
-		] 
-	});   	
-	//Break point entry 
-	$(window).bind('enterBreakpoint320',function() {	
-		eleHeight=eleHeight-20;
-	});	
-	
-	$(window).bind('enterBreakpoint480',function() {
-		eleHeight=eleHeight-20;
-	});
+    function initChatScroll() {
+        var eleHeight = window.innerHeight - 50;
+        $('#messages-wrapper').height(eleHeight);
+        $('#messages-wrapper').slimScroll({
+                color: '#a1b2bd',
+                size: '4px',
+                height: eleHeight,
+                alwaysVisible: false
+        });          
+    }
+    $(window).resize(function () {
+         $('#messages-wrapper').slimScroll({resize: true});
+    });
+    initChatScroll();
+});
 
-	$('#main-chat-wrapper').slimScroll({
-		color: '#a1b2bd',
-		size: '7px',
-		height: eleHeight,
-		alwaysVisible: false
-	});
-})
 	function set_user_details(username,status){
 		$('#messages-wrapper .chat-messages-header .status').addClass(status);
 		$('#messages-wrapper .chat-messages-header span').text(username);
