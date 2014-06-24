@@ -1,10 +1,13 @@
+/* Webarch Admin Dashboard 
+/* This JS is only for DEMO Purposes 
+-----------------------------------------------------------------*/	
 $(document).ready(function() {	
 	var graph;
 	var rick;
 	loadServerChart();
 	loadSampleChart();
 	loadAnimatedWeatherIcons();
-	
+
 //Ricksaw Chart for Server Load - Autoupdate
 function loadServerChart(){
 	var seriesData = [ [], []];
@@ -43,6 +46,7 @@ function loadServerChart(){
 }
 
 //Ricksaw Chart Sample 
+
 function loadSampleChart(){
 var seriesData = [ [], [],[]];
 	var random = new Rickshaw.Fixtures.RandomData(50);
@@ -130,6 +134,7 @@ var cityAreaData = [
         120.71,
         100.32
       ]
+if ($.fn.vectorMap){	  
 $('#world-map').vectorMap({
    map: 'us_lcc_en',
     scaleColors: ['#C8EEFF', '#0071A4'],
@@ -198,7 +203,7 @@ $('#world-map').vectorMap({
       }]
     },
   });
-  
+} 
 	//Simple todolist
 	 $('.todo-list').click(function () {
 		$(this).parent().children('label').toggleClass('done');
@@ -246,7 +251,6 @@ function loadAnimatedWeatherIcons(){
 	/*** Animated Weather Icon **/
 	var icons = new Skycons({"color": "white"});
 	icons.set("partly-cloudy-day", Skycons.PARTLY_CLOUDY_DAY);
-	icons.set("rain", Skycons.RAIN);
 	icons.set("wind", Skycons.WIND);
 	icons.play();
 }
