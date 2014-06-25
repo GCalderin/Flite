@@ -145,7 +145,7 @@ body.bottom-header .page-content .content {
   position: relative;
 }
 .header-seperation {
-  background-color: #121419;
+  background-color: #00bdff;
 }
 .header {
   padding: 0 !important;
@@ -555,7 +555,7 @@ body.bottom-header .page-content .content {
   background: none;
 }
 .page-sidebar .page-sidebar-wrapper > ul > li > ul.sub-menu > li > a:hover {
-  background: #121419 !important;
+  background: #00bdff !important;
 }
 .page-sidebar .page-sidebar-wrapper > ul > li > ul.sub-menu > li:first-child > a {
   border-top: 0px !important;
@@ -1715,7 +1715,6 @@ blockquote.pull-right small:after {
   content: "";
 }
 .logo {
-  margin: 7px 10px;
 }
 .normal {
   font-weight: normal;
