@@ -1715,7 +1715,6 @@ blockquote.pull-right small:after {
   content: "";
 }
 .logo {
-  margin: 7px 10px;
 }
 .normal {
   font-weight: normal;
