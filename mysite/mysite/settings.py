@@ -11,8 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-TEMPLATE_DIRS = (
-    '/Users/Josh P/Workspace/Flite/mysite/templates')
+TEMPLATE_DIRS = os.path.join(BASE_DIR, 'templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -55,12 +54,17 @@ MIDDLEWARE_CLASSES = (
 )
 
 ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_USE_TLS = False
-DEFAULT_FROM_EMAIL = 'testing@example.com'
+# EMAIL_HOST = 'localhost'
+# EMAIL_PORT = '1025'
+# EMAIL_USE_TLS = True
+
+# DEFAULT_FROM_EMAIL = 'registration@flitesite.net'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'gator3092.hostgator.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'registration@flitesite.net'
+EMAIL_HOST_PASSWORD = 'fltreg'
+EMAIL_USE_SSL = True
 
 ROOT_URLCONF = 'mysite.urls'
 
