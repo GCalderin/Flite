@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class UserProfile(models.Model):
 	cid = models.OneToOneField(User) #username
-	name = models.CharField(max_length=100, blank=True)
+	name = models.CharField(max_length=100)
 
 
 	def get_display_name(self):

@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 TEMPLATE_DIRS = os.path.join(BASE_DIR, 'templates')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+    '/var/www/static/',
+)
 
 
 # Quick-start development settings - unsuitable for production
@@ -61,10 +65,10 @@ ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window
 # DEFAULT_FROM_EMAIL = 'registration@flitesite.net'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'gator3092.hostgator.com'
-EMAIL_PORT = 465
+EMAIL_PORT = '25'
 EMAIL_HOST_USER = 'registration@flitesite.net'
 EMAIL_HOST_PASSWORD = 'fltreg'
-EMAIL_USE_SSL = True
+EMAIL_USE_TLS = True
 
 ROOT_URLCONF = 'mysite.urls'
 
@@ -102,9 +106,12 @@ USE_TZ = True
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader')
+STATICFILES_FINDERS = ("django.contrib.staticfiles.finders.FileSystemFinder",
+ "django.contrib.staticfiles.finders.AppDirectoriesFinder")
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 AUTH_PROFILE_MODULE = 'Users.UserProfile'
 STATIC_URL = '/static/'
+
