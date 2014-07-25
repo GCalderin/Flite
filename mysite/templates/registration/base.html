@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -17,7 +18,26 @@
 
     <div id="content">
         {% block content %}{% endblock %}
-        {% block main_content %}{% endblock %}
+        {% block css %} 
+        <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static '/boostrapv3/css/bootstrap-theme.min.css' %}" rel="stylesheet" type="text/css" />
+
+<link href="{% static 'plugins/pace/pace-theme-flash.css' %}" rel="stylesheet" type="text/css" media="screen" />
+
+<link href="{% static 'plugins/boostrapv3/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+
+<link href="{% static 'plugins/font-awesome/css/font-awesome.css' %}" rel="stylesheet" type="text/css" />
+
+<link href="{% static 'css/animate.min.css' %}" rel="stylesheet" type="text/css" />
+
+<link href="{% static 'css/responsive.css' %}" rel="stylesheet" type="text/css" />
+
+<link href="{% static 'css/magic_space.css' %}" rel="stylesheet" type="text/css" />
+
+<link href="{% static 'css/custom-icon-set.css' %}" rel="stylesheet" type="text/css" />
+        {% endblock %}
+        {% block main_content %}
+        {% endblock %}
     </div>
 </body>
 </html>

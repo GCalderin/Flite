@@ -62,10 +62,10 @@ ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window
 # EMAIL_PORT = '1025'
 # EMAIL_USE_TLS = True
 
-# DEFAULT_FROM_EMAIL = 'registration@flitesite.net'
+DEFAULT_FROM_EMAIL = 'registration@flitesite.net'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'gator3092.hostgator.com'
-EMAIL_PORT = '25'
+EMAIL_PORT = 26
 EMAIL_HOST_USER = 'registration@flitesite.net'
 EMAIL_HOST_PASSWORD = 'fltreg'
 EMAIL_USE_TLS = True

@@ -1,12 +1,15 @@
 {% extends "registration/base.html" %}
+{% load static from staticfiles %}
+
 
 {% block title %}Sign up{% endblock %}
 
 {% block content %}
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
 
   <h1>Create an account</h1>
   
-  <form roll="form" id="" method="POST" action="" class="wide">
+  <form roll="form" id="" method="POST" action="" class="Wide">
 	{% csrf_token %}
     
     {% if form.non_field_errors %}
@@ -25,6 +28,28 @@
       </div>
       <div class="help-block">
               {% for error in form.username.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+          
+      </div>
+
+      <div class="form-group {% if form.first_name.errors %}has-error{% endif %}">
+        <label for="id_firstname">First Name:</label>
+        <input type="text" name="first_name" class="form-control" id="first_name">
+      </div>
+      <div class="help-block">
+              {% for error in form.first_name.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+          
+      </div>
+
+      <div class="form-group {% if form.last_name.errors %}has-error{% endif %}">
+        <label for="id_lastname">Last Name:</label>
+        <input type="text" name="last_name" class="form-control" id="last_name">
+      </div>
+      <div class="help-block">
+              {% for error in form.last_name.errors %}
                 <span>{{ error }}</span>
               {% endfor %}
           
@@ -63,21 +88,16 @@
           
       </div>
   <div>
-    <p class="submit"><input type="submit" value="Register &rarr;"></p>
+    <input class="btn btn-danger btn-cons" type="submit" id="register_toggle" value="Register" />
+    <!-- <p class="submit"><input type="submit" value="Register &rarr;"></p> -->
   </div>
   
   </form>
   
 
 
-<p>Fill out the form to the left (all fields are required), and your
+<p>Fill out the form (all fields are required), and your
 account will be created; you'll be sent an email with instructions on how
 to finish your registration.</p>
-
-<p>We'll only use your email to send you signup instructions. We hate spam
-as much as you do.</p>
-
-<p>This account will let you log into the ticket tracker, claim tickets,
-and be exempt from spam filtering.</p>
 
 {% endblock %}

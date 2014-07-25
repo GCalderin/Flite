@@ -1,26 +1,37 @@
 {% extends "registration/base.html" %}
-{% load static from staticfiles %}
-<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
-<link href="static/css/style.css" rel="stylesheet" type="text/css" />
+{% load staticfiles %}
 
-<link href="static/boostrapv3/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+<!-- <link href="{% static '/boostrapv3/css/bootstrap-theme.min.css' %}" rel="stylesheet" type="text/css" />
 
-<link href="static/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen" />
-  <link href="static/plugins/boostrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-  <link href="static/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
-  <link href="static/css/animate.min.css" rel="stylesheet" type="text/css" />
-  <link href="static/css/responsive.css" rel="stylesheet" type="text/css" />
-  <link href="static/css/magic_space.css" rel="stylesheet" type="text/css" />
-  <link href="static/css/custom-icon-set.css" rel="stylesheet" type="text/css" />
+<link href="{% static 'plugins/pace/pace-theme-flash.css' %}" rel="stylesheet" type="text/css" media="screen" />
+
+<link href="{% static 'plugins/boostrapv3/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+
+<link href="{% static 'plugins/font-awesome/css/font-awesome.css' %}" rel="stylesheet" type="text/css" />
+
+<link href="{% static 'css/animate.min.css' %}" rel="stylesheet" type="text/css" />
+
+<link href="{% static 'css/responsive.css' %}" rel="stylesheet" type="text/css" />
+
+<link href="{% static 'css/magic_space.css' %}" rel="stylesheet" type="text/css" />
+
+<link href="{% static 'css/custom-icon-set.css' %}" rel="stylesheet" type="text/css" /> -->
+
+
 
 {% block title %}Log in{% endblock %}
 
 {% block content %}
+<!-- <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" /> -->
 <body class="no-top lazy" background-color: "#1b1e24">
   <div class="container">
     <div class="row login-container animated fadeInUp">
       <div class="col-md-4 col-md-offset-4 tiles white no-padding">
-
+        <div class="heading">
+          <center>
+            <img src= "{% static 'img/log_logo.png' %}"/>
+          </center>
+        </div>
 <h1>Log in</h1>
 
 <form roll="form" id="frm_login" class="animated fadeIn" method="POST" action="">
