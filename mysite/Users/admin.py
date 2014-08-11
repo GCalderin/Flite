@@ -11,7 +11,7 @@ class UserProfileInline(admin.StackedInline):
 	verbose_name_plural = 'profile'
 
 class UserAdmin(UserAdmin):
-	inlines = (UserProfileInline, )
+	inlines = [UserProfileInline, ]
 
 
 admin.site.register(User, UserAdmin)

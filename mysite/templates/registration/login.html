@@ -22,7 +22,9 @@
 {% block title %}Log in{% endblock %}
 
 {% block content %}
-<!-- <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" /> -->
+
+{% include "partials/header.html" %}
+{% include "partials/sidebar.html" %}
 <body class="no-top lazy" background-color: "#1b1e24">
   <div class="container">
     <div class="row login-container animated fadeInUp">

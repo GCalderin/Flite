@@ -18,6 +18,8 @@ class ActiveFlights(models.Model):
 	transponder = models.IntegerField
 	heading = models.IntegerField
 
+	class Meta:
+		unique_together = ("datetime", "callsign", "cid")
 
 class Flights(models.Model):
 	#autonumber
@@ -51,9 +53,28 @@ class ActiveControllers(models.Model):
 	visualrange = models.IntegerField
 	time_logon = models.DateTimeField
 
+	class Meta:
+		unique_together = ("datetime", "callsign", "cid")
+
 class Controllers(models.Model):
 	date = models.DateField
 	callsign = models.CharField(maxlength=10)
 	cid = models.ForeignKey('Users.cid')
 	facilitytype = models.CharField(max_digits=1)
-	TotalTime = models.IntegerField
+	TotalTime = models.TimeField
+
+class Aircrafts(models.Model):
+	id = models.IntegerField
+	aircraft_type = models.CharField(max_length=1)
+	mfgr = models.CharField(max_length=30)
+	model = models.CharField(max_length=30)
+	code = models.CharField(max_length=4)
+	engineqty = models.IntegerField
+	enginetype = models.CharField(max_length=1)
+	weightclass = models.CharField(max_length=1)
+	descentrate = models.CharField(max_length=10)
+	serviceceiling = models.CharField(max_length=10)
+	cruisetas = models.CharField(max_length=10)
+
+class Airlines(models.Model):
+	id
