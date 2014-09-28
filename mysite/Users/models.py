@@ -1,9 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 from registration.signals import user_registered
+from django.conf import settings
 
 class UserProfile(models.Model):
-	cid = models.ForeignKey(User, unique=True) #username
+	user = models.OneToOneField(User)
 	# name = models.CharField(max_length=100)
 	# email = models.CharField(max_length=100)
 
@@ -14,7 +15,7 @@ class UserProfile(models.Model):
 		return self.cid.first_name
 
 	def user_registered_callback(sender, user, request, **kwargs):
-		profile = UserProfile(cid = user)
+		profile = UserProfile(user = user)
 		user.first_name = request.POST["first_name"]
 		user.last_name = request.POST["last_name"]
 
